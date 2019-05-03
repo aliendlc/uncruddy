@@ -15,6 +15,7 @@ app.use(methodOverride('_method'));
 
 app.get('/', (req, res) => {
     res.send('WELCOME')
+    res.render('profiles.ejs')
 })
 
 app.get('/profiles', (req, res) => {
