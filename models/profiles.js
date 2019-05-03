@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.newSchema
 
 const profileSchema = new mongoose.Schema({
-    rating: Number,
+    rating: String,
     origin: String,
-    date: String,
+    date:  String,
     brewPlace: String,
     roaster: String,
     method: String,
@@ -16,6 +16,23 @@ const profileSchema = new mongoose.Schema({
     ratio: String
 });
 
+const roastSchema = new mongoose.Schema({
+    rating: Number,
+    origin: String,
+    date: String,
+    roaster: String,
+    roasterMac: String,
+    batchSize: String,
+    loadTemp: String,
+    firCracTime: String,
+    firCracTemp: String,
+    dropTime: String,
+    dropTemp: String,
+    finalWeight: String,
+    extNot: String
+});
+const Roast = mongoose.model('Roast', roastSchema);
 const Profile = mongoose.model('Profile', profileSchema);
 
 module.exports = Profile
+module.exports = Roast

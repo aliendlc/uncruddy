@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <% include ./partials/head.ejs %>
+        <title></title>
+    </head>
+    <body style= "text-align:center">
+        Rating: <%=profile.rating%><br/>
+        Origin: <%=profile.origin%><br/>
+        Date: <%=profile.date%><br/>
+        Roaster: <%=profile.roaster%><br/>
+        Roaster: <%=profile.roasterMac%><br/>
+        Batch Size: <%=profile.batchSize%><br/>
+        Load Temp: <%=profile.loadTemp%><br/>
+        1st Crack Time: <%=profile.firCracTime%><br/>
+        1st Crack Temp: <%=profile.firCracTemp%><br/>
+        Drop Time: <%=profile.dropTime%><br/>
+        Drop Temp: <%=profile.dropTemp%><br/>
+        Final Weight: <%=profile.finalWeight%><br/>
+        Extra Notes/Adjustments: <%=profile.extNot%><br/>
+        <nav>
+            <a href="/profiles/<%=profile.id%>/edit"><button>Edit</button><a/>
+            <a href="/profiles"><button>Back to Your Profiles</button></a>
+            <form action="/profiles/<%=profile.id%>?_method=DELETE" method="POST">
+                     <input type="submit" value="DELETE" />
+            </form><br/>
+
+        </nav>
+    </body>
+</html>
