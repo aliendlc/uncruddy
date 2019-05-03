@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <% include ./partials/head.ejs %>
+        <title></title>
+    </head>
+    <body style= "text-align:center">
+        Rating: <%=profile.rating%><br/>
+        Origin: <%=profile.origin%><br/>
+        Date: <%=profile.date%><br/>
+        Brew Place: <%=profile.brewPlace%><br/>
+        Roaster: <%=profile.roaster%><br/>
+        Method: <%=profile.method%><br/>
+        Note 1: <%=profile.note1%><br/>
+        Note 2: <%=profile.note2%><br/>
+        Note 3: <%=profile.note3%><br/>
+        Process: <%=profile.process%><br/>
+        Roast Date: <%=profile.roastDate%><br/>
+        Ratio: <%=profile.ratio%><br/>
+        <nav>
+            <form action="/profiles/<%=profile.id%>?_method=DELETE" method="POST">
+                     <input type="submit" value="DELETE" />
+            </form>
+            <button href="/profiles/<%=profile.id%>/edit">Edit</button>
+            <button href="/profiles">Back to Your Profiles</button>
+        </nav>
+    </body>
+</html>

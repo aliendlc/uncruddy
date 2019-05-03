@@ -1,0 +1,12 @@
+.container {
+    align-items: center;
+    text-align: center;
+}
+img {
+    width: 65%;
+}
+
+.profiles {
+    display: flex;
+    flex-direction: column;
+}
