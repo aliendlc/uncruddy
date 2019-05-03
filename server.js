@@ -25,11 +25,11 @@ app.get('/profiles', (req, res) => {
             profile: allProfiles
         })
     })
-    Roast.find({}, (error, allRoasts) => {
-        res.render('profiles.ejs', {
-            profile: allProfiles
-        })
-    })
+    // Roast.find({}, (error, allRoasts) => {
+    //     res.render('profiles.ejs', {
+    //         profile: allProfiles
+    //     })
+    // })
 })
 
 app.get('/profiles/new', (req, res) => {
@@ -40,13 +40,13 @@ app.get('/profiles/newRoast', (req, res) => {
     res.render('newRoast.ejs');
 });
 
-app.get('/profiles/:id/editRoast', (req, res) => {
-    Roast.findById(req.params.id, (err, foundRoast) => {
-        res.render('editRoast.ejs',{
-            roast: foundRoast
-        });
-    })
-});
+// app.get('/profiles/:id/editRoast', (req, res) => {
+//     Roast.findById(req.params.id, (err, foundRoast) => {
+//         res.render('editRoast.ejs',{
+//             roast: foundRoast
+//         });
+//     })
+// });
 
 app.get('/profiles/:id/edit', (req, res) => {
     Profile.findById(req.params.id, (err, foundProfile) => {

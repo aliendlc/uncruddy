@@ -17,7 +17,7 @@ const profileSchema = new mongoose.Schema({
 });
 
 const roastSchema = new mongoose.Schema({
-    rating: Number,
+    rating: String,
     origin: String,
     date: String,
     roaster: String,
