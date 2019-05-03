@@ -10,3 +10,6 @@ img {
     display: flex;
     flex-direction: column;
 }
+value {
+    text-align: center;
+}

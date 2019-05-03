@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <% include ./partials/head.ejs %>
+        <title></title>
+    </head>
+    <body style= "text-align:center">
+        <form style= "text-align:center" action="/profiles/<%=profile.id%>?_method=PUT" method="POST">
+          Rating (0-10): <input type="number" name="rating" value="<%=profile.rating%>"/><br/>
+          Origin: <input type="text" name="origin" value="<%=profile.origin%>"/><br/>
+          Date: <input type="text" name="date" value="<%=profile.date%>"/><br/>
+          Brew Place: <input type="text" name="brewPlace" value="<%=profile.brewPlace%>" /><br/>
+          Roaster: <input type="text" name="roaster" value="<%=profile.roaster%>"/><br/>
+          Method: <input type="text" name="method" value="<%=profile.method%>"/><br/>
+          Note 1: <input type="text" name="note1" value="<%=profile.note1%>"/><br/>
+          Note 2: <input type="text" name="note2" value="<%=profile.note2%>"/><br/>
+          Note 3: <input type="text" name="note3" value="<%=profile.note3%>"/><br/>
+          Process: <input type="text" name="process" value="<%=profile.process%>"/><br/>
+          Roast Date: <input type="text" name="roastDate" value="<%=profile.roastDate%>"/><br/>
+          Ratio: <input type="text" name="ratio" ="<%=profile.ratio%>"/><br/>
+          <br/>
+          <nav>
+            <input type="submit" value="Submit Changes" />
+          </nav>
+      </form>
+        <nav>
+            <button href="/profiles">Back to Your Profiles</button>
+        </nav>
+    </body>
+</html>
