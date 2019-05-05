@@ -16,7 +16,7 @@ app.use(methodOverride('_method'));
 app.use(express.static('images'))
 
 app.get('/', (req, res) => {
-    res.render('profiles.ejs')
+    res.redirect('/profiles')
 })
 
 app.get('/profiles', (req, res) => {
