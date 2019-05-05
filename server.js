@@ -5,7 +5,7 @@ const methodOverride = require('method-override')
 const mongoose = require('mongoose')
 const app = express()
 const PORT = process.env.PORT
-const mongoURI = process.env.MONGODB_URI
+const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/' + 'profiles'
 const Profile = require('./models/profiles.js');
 const Roast = require('./models/profiles.js')
 
@@ -88,7 +88,7 @@ app.delete('/profiles/:id', (req, res) => {
 
 app.listen(PORT, () => console.log('auth happening on port', PORT))
 
-mongoose.connect('mongodb://localhost:27017/' + 'profiles', { useNewUrlParser:true});
+mongoose.connect(mongoURI, { useNewUrlParser:true});
 mongoose.connection.once('open', () => {
     console.log('connected to mongo');
 });
