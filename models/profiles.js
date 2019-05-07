@@ -16,23 +16,11 @@ const profileSchema = new mongoose.Schema({
     ratio: String
 });
 
-const roastSchema = new mongoose.Schema({
-    rating: String,
-    origin: String,
-    date: String,
-    roaster: String,
-    roasterMac: String,
-    batchSize: String,
-    loadTemp: String,
-    firCracTime: String,
-    firCracTemp: String,
-    dropTime: String,
-    dropTemp: String,
-    finalWeight: String,
-    extNot: String
-});
-const Roast = mongoose.model('Roast', roastSchema);
+
+
 const Profile = mongoose.model('Profile', profileSchema);
 
 module.exports = Profile
-module.exports = Roast
+
+// module.exports.profile = Profile
+// module.exports.roast = Roast

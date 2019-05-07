@@ -5,31 +5,45 @@ const methodOverride = require('method-override')
 const mongoose = require('mongoose')
 const app = express()
 const PORT = process.env.PORT
-const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/' + 'profiles'
+const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/' + 'profiles' + 'roast'
 const Profile = require('./models/profiles.js');
-const Roast = require('./models/profiles.js')
+const Roast = require('./models/roast.js')
+const session = require('express-session')
 
 
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: false }))
 app.use(methodOverride('_method'));
 app.use(express.static('images'))
+app.use(session({
+  secret: process.env.SECRET,
+  resave: false,
+  saveUninitialized: false
+}))
 
 app.get('/', (req, res) => {
-    res.redirect('/profiles')
+    res.render('../controllers/index.ejs', {
+    currentUser: req.session.currentUser
+  })
 })
 
 app.get('/profiles', (req, res) => {
     Profile.find({}, (error, allProfiles) => {
+        Roast.find({}, (error, allRoasts) => {
         res.render('profiles.ejs', {
-            profile: allProfiles
+            profile: allProfiles,
+            roast: allRoasts
         })
+      })
     })
-    // Roast.find({}, (error, allRoasts) => {
-    //     res.render('profiles.ejs', {
-    //         profile: allProfiles
-    //     })
-    // })
+})
+
+app.get('/roast', (req, res) => {
+  Roast.find({}, (error, allRoasts) => {
+      res.render('profiles.ejs', {
+          roast: allRoasts
+      })
+  })
 })
 
 app.get('/profiles/new', (req, res) => {
@@ -70,7 +84,11 @@ app.post('/profiles/', (req, res) => {
         res.redirect('/profiles')
     });
 });
-
+app.post('/roast', (req, res) => {
+    Roast.create(req.body, (error, createdProfile) => {
+        res.redirect('/profiles')
+    });
+});
 
 
 app.put('/profiles/:id', (req, res) => {
@@ -85,6 +103,11 @@ app.delete('/profiles/:id', (req, res) => {
     });
 });
 
+const userController = require('./controllers/users_controller.js')
+app.use('/users', userController)
+
+const sessionsController = require('./controllers/sessions_controller.js')
+app.use('/sessions', sessionsController)
 
 app.listen(PORT, () => console.log('auth happening on port', PORT))
 
