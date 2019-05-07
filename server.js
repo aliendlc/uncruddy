@@ -21,22 +21,41 @@ app.use(session({
   saveUninitialized: false
 }))
 
+app.get('/app', (req, res)=>{
+    if(req.session.currentUser){
+      Profile.find({}, (error, allProfiles) => {
+          Roast.find({}, (error, allRoasts) => {
+          res.render('profiles.ejs', {
+              profile: allProfiles,
+              roast: allRoasts
+          })
+        })
+      })
+    } else {
+        res.redirect('/sessions/new');
+    }
+});
+
 app.get('/', (req, res) => {
     res.render('../controllers/index.ejs', {
     currentUser: req.session.currentUser
   })
 })
 
-app.get('/profiles', (req, res) => {
-    Profile.find({}, (error, allProfiles) => {
-        Roast.find({}, (error, allRoasts) => {
-        res.render('profiles.ejs', {
-            profile: allProfiles,
-            roast: allRoasts
+app.get('/profiles', (req, res)=>{
+    if(req.session.currentUser){
+      Profile.find({}, (error, allProfiles) => {
+          Roast.find({}, (error, allRoasts) => {
+          res.render('profiles.ejs', {
+              profile: allProfiles,
+              roast: allRoasts
+          })
         })
       })
-    })
-})
+    } else {
+        res.redirect('/sessions/new');
+    }
+});
 
 app.get('/roast', (req, res) => {
   Roast.find({}, (error, allRoasts) => {
