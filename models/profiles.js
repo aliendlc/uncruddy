@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.newSchema
 
+
 const profileSchema = new mongoose.Schema({
+    user: String,
     rating: String,
     origin: String,
     date:  Date,

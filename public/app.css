@@ -18,3 +18,7 @@ value {
     align-items: center;
     text-align: center;
 }
+.roasters {
+    display: flex;
+    flex-direction: column;
+}

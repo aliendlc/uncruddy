@@ -8,6 +8,7 @@
     <body>
         <h1>New Cup Entry</h1>
         <form action="/profiles" method="POST">
+            User: <input type="text" name="user" value= "<%= currentUser.username%>"/><br/><br/>
             Rating (0-10): <input type="number" min="1" max= "10" name="rating" /><br/>
             Origin: <input type="text" name="origin" /><br/>
             Date: <input type="text" name="date" /><br/>

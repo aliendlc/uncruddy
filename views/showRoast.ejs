@@ -21,11 +21,13 @@
         Final Weight: <%=roast.finalWeight%><br/>
         Extra Notes/Adjustments: <%=roast.extNot%><br/>
         <nav>
-            <a href="/roast/<%=roast.id%>/editRoast"><button>Edit</button><a/>
             <a href="/profiles"><button>Back to Your Profiles</button></a>
-            <form action="/roast/<%=roast.id%>?_method=DELETE" method="POST">
+            <% if (roast.user == thisUser){%>
+              <a href="/roast/<%=roast.id%>/edit"><button>Edit</button><a/>
+              <form action="/roast/<%=roast.id%>?_method=DELETE" method="POST">
                      <input type="submit" value="DELETE" />
-            </form><br/>
+              </form><br/><% }else {
+              }%>
         </nav>
     </body>
 </html>
