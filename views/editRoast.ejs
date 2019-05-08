@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <% include ./partials/head.ejs %>
+        <title></title>
+    </head>
+    <body>
+        <h1>New Roast Entry</h1>
+        <form style= "text-align:center" action="/roast/<%=roast.id%>?_method=PUT" method="POST">
+            User: <input type="text" name="user" value="<%=roast.user%>"/><br/>
+            Rating (0-10): <input type="number" min="1" max= "10"  name="rating" value="<%=roast.rating%>"/><br/>
+            Origin: <input type="text" name="origin" value="<%=roast.origin%>"/><br/>
+            Date: <input type="text" name="date" value="<%=roast.date%>"/><br/>
+            Roaster: <input type="text" name="roaster" value="<%=roast.roaster%>"/><br/>
+            Roaster(machine): <input type="text" name="roasterMac" value="<%=roast.roasterMac%>"/><br/>
+            Batch Size: <input type="text" name="batchSize" value="<%=roast.batchSize%>"/><br/>
+            Load Temp: <input type="text" name="loadTemp" value="<%=roast.loadTemp%>"/><br/>
+            1st Crack Time: <input type="text" name="firCracTime" value="<%=roast.firCracTime%>"/><br/>
+            1st Crack Temp: <input type="text" name="firCracTemp" value="<%=roast.firCracTemp%>"/><br/>
+            Drop Time: <input type="text" name="dropTime" value="<%=roast.dropTime%>"/><br/>
+            Drop Temp: <input type="text" name="dropTemp" value="<%=roast.dropTemp%>"/><br/>
+            Final Weight: <input type="text" name="finalWeight" value="<%=roast.finalWeight%>"/><br/>
+            Extra Notes/Adjustments: <input type="text" name="extNot" value="<%=roast.extNot%>"/><br/>
+            <br/>
+            <nav>
+              <input type="submit" value="Submit Changes" />
+            </nav>
+        </form>
+          <nav>
+              <button href="/profiles">Back to Your Profiles</button>
+          </nav>
+    </body>
+</html>

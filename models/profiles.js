@@ -4,7 +4,7 @@ const Schema = mongoose.newSchema
 const profileSchema = new mongoose.Schema({
     rating: String,
     origin: String,
-    date:  String,
+    date:  Date,
     brewPlace: String,
     roaster: String,
     method: String,
@@ -12,7 +12,9 @@ const profileSchema = new mongoose.Schema({
     note2: String,
     note3: String,
     process: String,
-    roastDate: String,
+    roastDate: Date,
+    waterTemp: String,
+    time: String,
     ratio: String
 });
 

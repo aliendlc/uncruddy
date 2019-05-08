@@ -70,16 +70,19 @@ app.get('/profiles/new', (req, res) => {
 });
 
 app.get('/profiles/newRoast', (req, res) => {
-    res.render('newRoast.ejs');
+    res.render('newRoast.ejs',
+    {
+    currentUser: req.session.currentUser
+  });
 });
 
-// app.get('/profiles/:id/editRoast', (req, res) => {
-//     Roast.findById(req.params.id, (err, foundRoast) => {
-//         res.render('editRoast.ejs',{
-//             roast: foundRoast
-//         });
-//     })
-// });
+app.get('/roast/:id/editRoast', (req, res) => {
+    Roast.findById(req.params.id, (err, foundRoast) => {
+        res.render('editRoast.ejs',{
+            roast: foundRoast
+        });
+    })
+});
 
 app.get('/profiles/:id/edit', (req, res) => {
     Profile.findById(req.params.id, (err, foundProfile) => {
@@ -89,6 +92,13 @@ app.get('/profiles/:id/edit', (req, res) => {
     })
 });
 
+app.get('/roast/:id', (req, res) => {
+    Roast.findById(req.params.id, (error, foundRoast) => {
+        res.render('showRoast.ejs', {
+            roast: foundRoast
+        });
+    });
+});
 
 app.get('/profiles/:id', (req, res) => {
     Profile.findById(req.params.id, (error, foundProfile) => {
@@ -97,6 +107,7 @@ app.get('/profiles/:id', (req, res) => {
         });
     });
 });
+
 
 app.post('/profiles/', (req, res) => {
     Profile.create(req.body, (error, createdProfile) => {
@@ -116,8 +127,20 @@ app.put('/profiles/:id', (req, res) => {
     })
 });
 
+app.put('/roast/:id', (req, res) => {
+    Roast.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedProfile) => {
+        res.redirect('/profiles');
+    })
+});
+
 app.delete('/profiles/:id', (req, res) => {
     Profile.findByIdAndRemove(req.params.id, (err, data) => {
+        res.redirect('/profiles');
+    });
+});
+
+app.delete('/roast/:id', (req, res) => {
+    Roast.findByIdAndRemove(req.params.id, (err, data) => {
         res.redirect('/profiles');
     });
 });

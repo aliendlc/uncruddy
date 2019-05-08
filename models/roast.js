@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.newSchema
 
 const roastSchema = new mongoose.Schema({
+    user: String,
     rating: String,
     origin: String,
     date: String,

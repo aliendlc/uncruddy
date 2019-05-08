@@ -8,7 +8,8 @@
     <body>
         <h1>New Roast Entry</h1>
         <form action="/roast" method="POST">
-            Rating (0-10): <input type="number" name="rating" /><br/>
+            User: <input type="text" name="user" /><br/>
+            Rating (0-10): <input type="number" min="1" max= "10"  name="rating" /><br/>
             Origin: <input type="text" name="origin" /><br/>
             Date: <input type="text" name="date" /><br/>
             Roaster: <input type="text" name="roaster" /><br/>
@@ -23,6 +24,9 @@
             Extra Notes/Adjustments: <input type="text" name="extNot" /><br/>
             <br/>
             <input type="submit" value="Create Roast" />
+            <nav>
+              <a href="/profiles"><button>Back to Your Profiles</button></a>
+            </nav>
         </form>
     </body>
 </html>

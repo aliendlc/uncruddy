@@ -8,7 +8,7 @@
     <body>
         <h1>New Cup Entry</h1>
         <form action="/profiles" method="POST">
-            Rating (0-10): <input type="number" name="rating" /><br/>
+            Rating (0-10): <input type="number" min="1" max= "10" name="rating" /><br/>
             Origin: <input type="text" name="origin" /><br/>
             Date: <input type="text" name="date" /><br/>
             Brew Place: <input type="text" name="brewPlace" /><br/>
@@ -19,6 +19,8 @@
             Note 3: <input type="text" name="note3" /><br/>
             Process: <input type="text" name="process" /><br/>
             Roast Date: <input type="text" name="roastDate" /><br/>
+            Water Temp: <input type="text" name="waterTemp" /><br/>
+            Time: <input type="text" name="time" /><br/>
             Ratio: <input type="text" name="ratio" /><br/>
             <br/>
             <input type="submit" value="Create Cup" />
