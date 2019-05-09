@@ -5,7 +5,7 @@
         <% include ./partials/head.ejs %>
         <title></title>
     </head>
-    <body style= "text-align:center">
+    <body style= "text-align:center margin-top:20%">
         <form style= "text-align:center" action="/profiles/<%=profile.id%>?_method=PUT" method="POST">
           User: <input type="text" name="user" value= "<%= thisUser%>"/><br/><br/>
           Rating (0-10): <input type="number" name="rating" value="<%=profile.rating%>"/><br/>

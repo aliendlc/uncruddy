@@ -6,7 +6,8 @@
     <% include ./partials/head.ejs %>
   </head>
   <header>
-    <h1>Coffee Brain</h1>
+    <h1>COFFEE BRAIN</h1>
+    <h5>free up some space in that noggin - log your coffee</h5><br/>
     <img src = "coffee-brain.png" alt="Not Availle" style= "width: 15em"><br/><br/>
   </header>
   <div class="body">
@@ -23,7 +24,7 @@
       </h4>
         <div class="proRo">
           <% for(let i = 0; i < myProfile.length; i++){ %>
-              <a href="/profiles/<%=myProfile[i].id%>"><%=myProfile[i].origin%> : <%=myProfile[i].rating%>
+              <a href="/profiles/<%=myProfile[i].id%>">|| Origin: <%=myProfile[i].origin%> || Rating: <%=myProfile[i].rating%> ||
           <% } %>
               </a>
         </div>
@@ -32,7 +33,7 @@
       </h4>
         <div class="proRo">
           <% for(let i = 0; i < myRoast.length; i++){ %>
-              <a href="/roast/<%=myRoast[i].id%>"><%=myRoast[i].origin%> : <%=myRoast[i].rating%>
+              <a href="/roast/<%=myRoast[i].id%>">||  Origin: <%=myRoast[i].origin%>  ||  Rating: <%=myRoast[i].rating%>  ||
           <% } %>
               </a>
         </div>
@@ -42,7 +43,7 @@
         </h4>
           <div class="proRo">
             <% for(let i = 0; i < profile.length; i++){ %>
-                <a href="/profiles/<%=profile[i].id%>"><%=profile[i].origin%> : <%=profile[i].rating%>
+                <a href="/profiles/<%=profile[i].id%>">||  Origin: <%=profile[i].origin%> || Rating: <%=profile[i].rating%>  ||
             <% } %>
                 </a>
           </div>
@@ -53,7 +54,7 @@
         </h4>
           <div class="proRo">
               <% for(let i = 0; i < roast.length; i++){ %>
-                  <a href="/roast/<%=roast[i].id%>"><%=roast[i].origin%> : <%=roast[i].rating%>
+                  <a href="/roast/<%=roast[i].id%>">||  Origin: <%=roast[i].origin%> || Rating: <%=roast[i].rating%>  ||
               <% } %>
                   </a>
           </div>
